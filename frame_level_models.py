@@ -47,17 +47,6 @@ flags.DEFINE_bool(
     "sample_random_frames", False,
     "If true samples random frames (for frame level models). If false, a random"
     "sequence of frames is sampled instead.")
-flags.DEFINE_integer("dbof_cluster_size", 16384,
-                     "Number of units in the DBoF cluster layer.")
-flags.DEFINE_integer("dbof_hidden_size", 2048,
-                    "Number of units in the DBoF hidden layer.")
-flags.DEFINE_bool("dbof_relu", True, 'add ReLU to hidden layer')
-flags.DEFINE_integer("dbof_var_features", 0,
-                     "Variance features on top of Dbof cluster layer.")
-
-flags.DEFINE_string("dbof_activation", "relu", 'dbof activation')
-
-flags.DEFINE_bool("softdbof_maxpool", False, 'add max pool to soft dbof')
 
 flags.DEFINE_integer("netvlad_cluster_size", 64,
                      "Number of units in the NetVLAD cluster layer.")
@@ -86,26 +75,6 @@ flags.DEFINE_integer("netvlad_hidden_size_audio", 64,
 
 flags.DEFINE_bool("netvlad_add_batch_norm", True,
                   "Adds batch normalization to the DBoF model.")
-
-flags.DEFINE_integer("fv_cluster_size", 64,
-                     "Number of units in the NetVLAD cluster layer.")
-
-flags.DEFINE_integer("fv_hidden_size", 2048,
-                     "Number of units in the NetVLAD hidden layer.")
-flags.DEFINE_bool("fv_relu", True,
-                     "ReLU after the NetFV hidden layer.")
-
-
-flags.DEFINE_bool("fv_couple_weights", True,
-                     "Coupling cluster weights or not")
- 
-flags.DEFINE_float("fv_coupling_factor", 0.01,
-                     "Coupling factor")
-
-
-flags.DEFINE_string("dbof_pooling_method", "max",
-                    "The pooling method used in the DBoF cluster layer. "
-                    "Choices are 'average' and 'max'.")
 flags.DEFINE_string("video_level_classifier_model", "MoeModel",
                     "Some Frame-Level models can be decomposed into a "
                     "generalized pooling operation followed by a "
